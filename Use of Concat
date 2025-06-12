@@ -1,0 +1,6 @@
+#It separates first name from last name with an space, and displays a email based on the first name and last name given by the accessed table data
+
+SELECT first_name, last_name,  #Selects theb data we want 
+CONCAT(first_name, ' ',last_name) as Full_Name, #Separated first name from second name
+CONCAT(first_name, last_name, '@hotmail.com') as Now_Turned_Email #Aliased name
+FROM parks_and_recreation.employee_demographics; #acess table
