@@ -1,0 +1,25 @@
+-- Analyzing the employees who will receive a raise or bonus.
+#If salary < 50000 = 5% raises
+#If salary > 50000 = 7% raises
+#If department = Finance = 10% bonus instead of raises.
+
+#To analyze it, we'll need the salary table AND the park_departaments so we can see the department id's and see which is equal to the finances departament.
+#Then, since every employee has a departament ID we match it to the number used in the park_departament tables. 
+
+
+SELECT
+first_name,
+last_name,
+salary,
+CASE
+    WHEN salary < 50000 THEN salary * 1.05
+    WHEN salary > 50000 THEN salary * 1.07
+END as new_salary,
+CASE
+    WHEN dept_id = 6 THEN salary * .10 #its equal to 10%
+END AS Finance_Bonus
+FROM parks_and_recreation.employee_salary
+;
+
+#Only Ben received the 10% bonus.
+#Tom and Jerry didn't get a raise.
